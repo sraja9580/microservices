@@ -16,7 +16,7 @@
 			IT IS REQUIRED ONLY INCASE OF FEIGN CLIEN OR EUREKA REGISTORY
 			spring.application.name=limits-msg-provider
 
-	FEIGN CLIENT : Create Provider (02_limits_Service_feign)
+	FEIGN CLIENT : Create Client (02_limits_Service_feign)
 	----------------------------------------
 		1. Create service with following starter
 		   Spring Web
@@ -46,7 +46,7 @@
 			IT IS REQUIRED ONLY INCASE OF FEIGN CLIEN OR EUREKA REGISTORY
 			spring.application.name=limits-msg-provider
 			
-	RIBBON CLIENT SIDE LOAD BALANCING: Create Provider (03_limits_Service_ribbon)
+	RIBBON CLIENT SIDE LOAD BALANCING: Create Client (03_limits_Service_ribbon)
 	----------------------------------------
 		1. Create service with following starter
 		   Spring Web
