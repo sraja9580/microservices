@@ -80,7 +80,7 @@
 		8. Define in app name it is as part of froxy client in consumer side
 			IT IS REQUIRED ONLY INCASE OF EUREKA REGISTORY
 			spring.application.name=limits-service
-			
+
 2. Eureka Service Registory
 ---------------------------
 
@@ -101,3 +101,43 @@
 				@EnableDiscoveryClient -->Application.java
 				
 		4. Now go and check in Eureka Server localhost:8761 you will be able to see the app
+		
+	Create Client (06_limits_Service_eureka)
+	----------------------------------------
+	1. Create service with following starter
+	   Spring Web
+	   Feign client	
+	   RIBBON
+	   lombok
+	   Service Registry PCF
+	   
+	2. Provide endpoint for /limits
+		return min,max,dummy msg
+	
+	3. RIBBON LOAD BALANCING: Write proxy client for 01_limits_msg_provider with 
+		
+		@FeignClient(name = "limits-msg-provider")
+		@RibbonClient(name = "limits-msg-provider")
+		public interface LimitsMsgProviderFeignProxyClient {
+			@GetMapping("/getmsg")
+			public String getMsg();
+		}
+		
+	4. Enable Feign clients in Boot App java file
+		@EnableFeignClients(basePackages ="com.practice.raja.microservice.limits.proxyclient" )
+		
+	5. Autowire proxy client in controller
+	
+	6. Get message from 01_limits_msg_provider using proxy client
+	
+	7. Registoring service with Eureke
+		        Defile app-name in application.props and define Eureke server url
+				spring.application.name=limits-msg-service
+				eureka.client.service-url.defaultZone=http://localhost:8761/eureka
+			Make Service discoverable using anotation
+				@EnableDiscoveryClient -->Application.java
+				
+	8. Now go and check in Eureka Server localhost:8761 you will be able to see the app
+	
+	9. Run more than one instance of 05_limits_msg_provider_eureka and call http://localhost:8300/limits 
+		now ribben dinamically get the list of instance from Eureka we dont need to hardcode.
