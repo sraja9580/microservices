@@ -159,3 +159,7 @@
 
 		9. Run more than one instance of 05_limits_msg_provider_eureka and call http://localhost:8300/limits 
 			now ribben dinamically get the list of instance from Eureka we dont need to hardcode.
+			
+3. Resilience4j
+---------------
+	https://resilience4j.readme.io/docs/getting-started-3
