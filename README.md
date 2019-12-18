@@ -86,21 +86,21 @@
 
 	Create Eureka Naming Server (04_limits-eureka-netflix-naming-server)
 	--------------------------------------------------------------------
-	1. Create boot app with following starter
-	   Eureka Server	   	
-		
-	2. Make this app as Eureka server by doing following
-	       *application.properties
-		       spring.application.name=limits-eureka-netflix-naming-server
-		       eureka.client.register-with-eureka=false
-		       eureka.client.fetch-registry=false
-		       
-		*Application.java
-			@EnableEurekaServer
-			
-	* We need this Naming Server application only in local. In PCF we can get this as service.
-	* We have to find the service with both 05_limits_msg_provider_eureka and 06_limits_Service_eureka
-	* Other configurations in application.property file will be reconfigured using AutoReconfiguration future.
+		1. Create boot app with following starter
+		   Eureka Server	   	
+
+		2. Make this app as Eureka server by doing following
+		       *application.properties
+			       spring.application.name=limits-eureka-netflix-naming-server
+			       eureka.client.register-with-eureka=false
+			       eureka.client.fetch-registry=false
+
+			*Application.java
+				@EnableEurekaServer
+
+		* We need this Naming Server application only in local. In PCF we can get this as service.
+		* We have to find the service with both 05_limits_msg_provider_eureka and 06_limits_Service_eureka
+		* Other configurations in application.property file will be reconfigured using AutoReconfiguration future.
 
 	Create Provider (05_limits_msg_provider_eureka)
 	----------------------------------------
