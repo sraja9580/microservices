@@ -164,6 +164,12 @@
 ---------------
 	https://resilience4j.readme.io/docs/getting-started-3
 	
+	Circuit Breaker
+	---------------
+		CLOSED 		-> All fine service provider is up and running
+		OPEN		-> Provider is down
+		HALF-OPEN	-> Some hits are success some are failure		
+	
 	Create Client (07_limits_service_resilience4j)
 	----------------------------------------------
 
