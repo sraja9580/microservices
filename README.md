@@ -249,3 +249,19 @@
 
 				check CircuitBreaker status in health url
 				http://localhost:8300/actuator/health
+				
+	RATE LIMITER
+	------------
+		CONTROL NO OF REQUEST SENT TO AN APPLICATION
+		
+		timeoutDuration  	5 [s]     The default wait time a thread waits for a permission
+		limitRefreshPeriod	500[ns]	  The period of a limit refresh. After each period the rate limiter sets its permissions count back to the limitForPeriod value	
+		limitForPeriod		50	  The number of permissions available during one limit refresh period
+		
+		  ratelimiter:
+		    instances:
+		       getMsgSrvce:
+			limitForPeriod: 10
+			limitRefreshPeriod: 500
+			timeoutDuration: 5
+
