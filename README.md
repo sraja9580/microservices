@@ -47,7 +47,7 @@
 			spring.application.name=limits-msg-provider
 			
 	RIBBON CLIENT SIDE LOAD BALANCING: Create Client (03_limits_Service_ribbon)
-	----------------------------------------
+	--------------------------------------------------------------------------
 		1. Create service with following starter
 		   Spring Web
 		   Feign client	
@@ -80,3 +80,24 @@
 		8. Define in app name it is as part of froxy client in consumer side
 			IT IS REQUIRED ONLY INCASE OF EUREKA REGISTORY
 			spring.application.name=limits-service
+			
+2. Eureka Service Registory
+---------------------------
+
+	Create Provider (05_limits_msg_provider_eureka)
+	----------------------------------------
+		1. Create service with following starter
+		   Spring Web
+		   Service Registry PCF
+		
+		2. Provide end point /getmsg which returns 
+			Welcome message with ip address in PCF and port in local
+			
+		3. Registoring service with Eureke
+		        Defile app-name in application.props and define Eureke server url
+				spring.application.name=limits-msg-provider
+				eureka.client.service-url.defaultZone=http://localhost:8761/eureka
+			Make Service discoverable using anotation
+				@EnableDiscoveryClient -->Application.java
+				
+		4. Now go and check in Eureka Server localhost:8761 you will be able to see the app
