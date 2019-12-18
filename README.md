@@ -235,11 +235,11 @@
 
 			9. Actutator CircuitBreaker Configuration
 			-----------------------------------------
-			*BY DOING BELOW CONFIGURATION WE CAN SEE CIRCUIT BREAKER STATE AND OTHER DETAILS IN ACTUTATOR HEALTH PAGE
+				*BY DOING BELOW CONFIGURATION WE CAN SEE CIRCUIT BREAKER STATE AND OTHER DETAILS IN ACTUTATOR HEALTH PAGE
 
-			management.endpoint.health.show-details: always
-			management.endpoints.web.exposure.include: "*"  
-			management.health.circuitbreakers.enabled: true
+				management.endpoint.health.show-details: always
+				management.endpoints.web.exposure.include: "*"  
+				management.health.circuitbreakers.enabled: true
 
-			check CircuitBreaker status in health url
-			http://localhost:8300/actuator/health
+				check CircuitBreaker status in health url
+				http://localhost:8300/actuator/health
