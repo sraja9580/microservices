@@ -170,6 +170,8 @@
 		OPEN		-> Provider is down
 		HALF-OPEN	-> Some hits are success some are failure				 
 		
+		* If circuit breaker is open it will not go to closed stated imediatly after first success request, first it will move to half open state then after some time it will move to closed state.
+		
 	Create Client (07_limits_service_resilience4j)
 	----------------------------------------------
 
