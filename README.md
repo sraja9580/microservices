@@ -168,8 +168,8 @@
 	---------------
 		CLOSED 		-> All fine service provider is up and running
 		OPEN		-> Provider is down
-		HALF-OPEN	-> Some hits are success some are failure		
-	
+		HALF-OPEN	-> Some hits are success some are failure				 
+		
 	Create Client (07_limits_service_resilience4j)
 	----------------------------------------------
 
@@ -260,7 +260,7 @@
 		
 		  ratelimiter:
 		    instances:
-		       getMsgSrvce:
+		       getMsgSrvce: # it is the name given in Rate Limiterr annotaion @RateLimiter(name = "getMsgSrvce")
 			limitForPeriod: 10
 			limitRefreshPeriod: 500
 			timeoutDuration: 5
