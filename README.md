@@ -164,6 +164,16 @@
 ---------------
 	https://resilience4j.readme.io/docs/getting-started-3
 	
+	Resilient4j is a lightweight falult tolerance library inspired by Netflix Hystrix but designed for functional programing
+	
+	Vavr -javaslang
+	
+	Resilient4j provides higher order functions (decorators) to enhance any Functional Insterface,Lambda Expression or method refference with
+		-Circuit Breaker
+		-Rate Limiter
+		-Retry
+		-Bulkhead
+	
 	Circuit Breaker
 	---------------
 		CLOSED 		-> All fine service provider is up and running
