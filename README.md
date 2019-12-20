@@ -273,3 +273,11 @@
 	RETRY
 	-----
 		RETRY WILL TRY TO CONNECT TO THE SERVICE IN SPECIFIC NO OF TIME ON SPECIFIC DURATION EVEN IF THE SERVICE IS NOT ACCESSIBLE .BEFORE RETURNING THE RESPONSE.
+		
+		With below config service will be called 6 times on 10000ms interval before returning the value.In case of service is up and running it will call just one time and respond.
+		
+		retry:
+		 instances:
+		  getMsgSrvce:
+		    max-retry-attempts: 6
+		    wait-duration: 10000
