@@ -1,3 +1,6 @@
+* [Service Discovery](#service-discovery)
+* [Microservice configurationy](#microservice-configuration)
+
 # Service Discovery
 Instead of hardcoding URL of the service we consume, our microservice will check with the **Discovery Service** for available instance of service we looking for.<br>
 
@@ -66,6 +69,36 @@ Add @LoadBalance to rest template
 	}
 Use app name in service call
  	restTemplte.getForObject("http://RATINGS-DATA-SERVICE/ratingsdata/users/"+userId, UserRatings.class);
+```
+# Microservice configuration
+**Configuration Goals**
+* Externalized - configuration separated from code(in props)
+* Environment Specific - Profile
+* Consistent - Consistent across all the service and there instance
+* Version HISTORY
+* Real-time management - changing config without restart
+## Propertifile Demo
+**@Value annotation**
+* @value  resolves the expression to a string
+```
+	Below code assigns the string value to variable.
+	@Value("HelloWorld")
+	private String staticHello;
+```
+* Read value from property file
+```
+@Value("${app.name}")
+private String appName;
+```
+* ${} can be used with in property file also
+```
+app.name=microservice-configuration
+app.welcome.msg=Welcome tp ${app.name}
+```
+* Read the property if not found assign default value, default should be string
+```
+@Value("${concat.msg: from }")
+private String concatMsg;
 ```
 1. Accessing Service using Febin client proxy
 ----------------------------------------------
