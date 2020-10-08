@@ -33,7 +33,9 @@ public class DiscoveryServerApplication {
 }
 ```
 **[Eureka Discovery Client: Service Provider](service-discovery/ratings-data-service)**<br>
-Add starter **org.springframework.cloud:spring-cloud-starter-netflix-eureka-client** to your prokect, and define you appname in **application.properties**.Addling **@EnableDiscoveryClient** is option in latest spring cloud.
+* Add starter **org.springframework.cloud:spring-cloud-starter-netflix-eureka-client** to your project
+* Define appname in **application.properties**
+* Addling **@EnableDiscoveryClient** is optional in latest spring cloud.
 ```
 Add below starter to app
 	org.springframework.cloud:spring-cloud-starter-netflix-eureka-client	
@@ -41,13 +43,26 @@ Add App Name:
 	spring.application.name=ratings-data-service
 ```
 **[Eureka Discovery Client: Service Consumer](service-discovery/movie-catalog-servicee)**<br>
-Add starter **org.springframework.cloud:spring-cloud-starter-netflix-eureka-client** to your prokect, and define you appname in **application.properties**.Addling **@EnableDiscoveryClient** is option in latest spring cloud.
+* Add starter **org.springframework.cloud:spring-cloud-starter-netflix-eureka-client** to your project.
+* Define  appname in **application.properties**.
+* Addling **@EnableDiscoveryClient** is optional in latest spring cloud.
+* Add **@LoadBalanced** at **restTemplate** bean
+* Use service name in api call instead of host **http://RATINGS-DATA-SERVICE/ratingsdata/users/"+userId**
 ```
 Add below starter to app
 	org.springframework.cloud:spring-cloud-starter-netflix-eureka-client	
 	
 Add App Name:
-	spring.application.name=movie-catalog-service	
+	spring.application.name=movie-catalog-service
+	
+Add @LoadBalance to rest template
+	@LoadBalanced
+	@Bean
+	public RestTemplate setRestTemplate() {
+		return new RestTemplate();
+	}
+Use app name in service call
+ 	restTemplte.getForObject("http://RATINGS-DATA-SERVICE/ratingsdata/users/"+userId, UserRatings.class);
 ```
 1. Accessing Service using Febin client proxy
 ----------------------------------------------
