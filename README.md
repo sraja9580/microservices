@@ -78,7 +78,7 @@ Use app name in service call
 * Version HISTORY
 * Real-time management - changing config without restart
 
-## [Read config from props file Demo](configurationy/config-at_value-configurationproperties)
+## [Read config from props file Demo](microservice-configuration/config-at_value-configurationproperties)
 **@Value annotation**
 * @value  resolves the expression to a string
 ```
