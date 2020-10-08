@@ -1,5 +1,5 @@
 * [Service Discovery](#service-discovery)
-* [Microservice configurationy](#microservice-configuration)
+* [Microservice configuration](#microservice-configuration)
 
 # Service Discovery
 Instead of hardcoding URL of the service we consume, our microservice will check with the **Discovery Service** for available instance of service we looking for.<br>
