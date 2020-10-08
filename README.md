@@ -1,5 +1,6 @@
 # Service Discovery
-Instead of hardcoding servicer url that we consume, our microservice will check with the **Discovery Service** for available instance of service we looking for.<br>
+Instead of hardcoding URL of the service we consume, our microservice will check with the **Discovery Service** for available instance of service we looking for.<br>
+
 **Why hard Coded URLs are so bad?**<br>
 * URL changes requires code update.
 * Dynamic URLs in the cloud
@@ -7,7 +8,7 @@ Instead of hardcoding servicer url that we consume, our microservice will check 
 * Multiple Environment<br><br>
 
 **Service Discovery Pattern**<br>
-When making a request to a service, the client obtains the location of a service instance by querying a Service Registry, which knows the locations of all service instances.<br>
+**Eureka Server** from Spring Cloud uses **Client Side Discovery**.When making a request to a service, the client obtains the location of a service instance by querying a Service Registry, which knows the locations of all service instances.Load balancing is handled in client side<br>
 ![Client Side Service Discovery 1](images/service-discover-clientside-1.PNG) <br>
 ![Client Side Service Discovery 2](images/service-discover-clientside-2.PNG) <br>
 
