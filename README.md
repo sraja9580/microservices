@@ -13,13 +13,24 @@ Instead of hardcoding URL of the service we consume, our microservice will check
 ![Client Side Service Discovery 2](images/service-discover-clientside-2.PNG) <br>
 
 ## Service Discoery Demo 
-**Eureka Server**<br>
+**[Eureka Server](service-discovery/discovery-server)**<br>
+Create a project adding starter **org.springframework.cloud:spring-cloud-starter-netflix-eureka-server** and add **@EnableEurekaServer** to application class.Now your Eureka server is ready to launch
 ```
 Create a server using below starter
 	org.springframework.cloud:spring-cloud-starter-netflix-eureka-server
 Props
 	eureka.client.register-with-eureka=false 
 	eureka.client.fetch-registry=false
+	
+@EnableEurekaServer
+@SpringBootApplication
+public class DiscoveryServerApplication {
+
+	public static void main(String[] args) {
+		SpringApplication.run(DiscoveryServerApplication.class, args);
+	}
+
+}
 ```
 **Eureka Discovery Client: Service Provider**<br>
 ```
