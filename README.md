@@ -12,6 +12,30 @@ Instead of hardcoding URL of the service we consume, our microservice will check
 ![Client Side Service Discovery 1](images/service-discover-clientside-1.PNG) <br>
 ![Client Side Service Discovery 2](images/service-discover-clientside-2.PNG) <br>
 
+## Service Discoery Demo 
+**Eureka Server**<br>
+```
+Create a server using below starter
+	org.springframework.cloud:spring-cloud-starter-netflix-eureka-server
+Props
+	eureka.client.register-with-eureka=false 
+	eureka.client.fetch-registry=false
+```
+**Eureka Discovery Client: Service Provider**<br>
+```
+Add below starter to app
+	org.springframework.cloud:spring-cloud-starter-netflix-eureka-client	
+Add App Name:
+	spring.application.name=ratings-data-service
+```
+**Eureka Discovery Client: Service Consumer**<br>
+```
+Add below starter to app
+	org.springframework.cloud:spring-cloud-starter-netflix-eureka-client	
+	
+Add App Name:
+	spring.application.name=movie-catalog-service	
+```
 1. Accessing Service using Febin client proxy
 ----------------------------------------------
 
