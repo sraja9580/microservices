@@ -1,14 +1,14 @@
 # Service Discovery
-Instead of hardcoding servicer url that we consume, our microservice will check with the **Discovery Service** for available instance of service we looking for.
+Instead of hardcoding servicer url that we consume, our microservice will check with the **Discovery Service** for available instance of service we looking for.<br>
 **Why hard Coded URLs are so bad?**<br>
 * URL changes requires code update.
 * Dynamic URLs in the cloud
 * Load Balancing
-* Multiple Environment
+* Multiple Environment<br>
 **Service Discovery Pattern**<br>
 When making a request to a service, the client obtains the location of a service instance by querying a Service Registry, which knows the locations of all service instances.
 ![Client Side Service Discovery 1](images/service-discover-clientside-1.PNG) <br>
-![Client Side Service Discovery 2](images/service-discover-clientside-12PNG) <br>
+![Client Side Service Discovery 2](images/service-discover-clientside-2.PNG) <br>
 
 1. Accessing Service using Febin client proxy
 ----------------------------------------------
