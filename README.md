@@ -15,6 +15,7 @@ Instead of hardcoding URL of the service we consume, our microservice will check
 ## Service Discoery Demo 
 **[Eureka Server](service-discovery/discovery-server)**<br>
 Create a project adding the starter **org.springframework.cloud:spring-cloud-starter-netflix-eureka-server** and add **@EnableEurekaServer** to application class.Now your Eureka server is ready to launch
+* http://localhost:8761/
 ```
 Create a server using below starter
 	org.springframework.cloud:spring-cloud-starter-netflix-eureka-server
@@ -36,6 +37,7 @@ public class DiscoveryServerApplication {
 * Add starter **org.springframework.cloud:spring-cloud-starter-netflix-eureka-client** to your project
 * Define appname in **application.properties**
 * Addling **@EnableDiscoveryClient** is optional in latest spring cloud.
+* http://localhost:8083/ratingsdata/users/2
 ```
 Add below starter to app
 	org.springframework.cloud:spring-cloud-starter-netflix-eureka-client	
@@ -48,6 +50,7 @@ Add App Name:
 * Addling **@EnableDiscoveryClient** is optional in latest spring cloud.
 * Add **@LoadBalanced** at **restTemplate** bean
 * Use service name in api call instead of host **http://RATINGS-DATA-SERVICE/ratingsdata/users/"+userId**
+* http://localhost:8081/catalog/1
 ```
 Add below starter to app
 	org.springframework.cloud:spring-cloud-starter-netflix-eureka-client	
