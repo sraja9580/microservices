@@ -77,7 +77,8 @@ Use app name in service call
 * Consistent - Consistent across all the service and there instance
 * Version HISTORY
 * Real-time management - changing config without restart
-## Propertifile Demo
+
+## [Read config from props file Demo](configurationy/config-at_value-configurationproperties)
 **@Value annotation**
 * @value  resolves the expression to a string
 ```
@@ -90,15 +91,59 @@ Use app name in service call
 @Value("${app.name}")
 private String appName;
 ```
-* ${} can be used with in property file also
+* **${} can be used with in property** file also
 ```
 app.name=microservice-configuration
 app.welcome.msg=Welcome tp ${app.name}
 ```
-* Read the property if not found assign default value, default should be string
+* **Read the property if not found assign default value**, default should be string
 ```
 @Value("${concat.msg: from }")
 private String concatMsg;
+```
+* **List from property file**
+```
+application.prop`
+	myapp.consumer.lst=app1,app7,app8
+	
+@Value("${myapp.consumer.lst}")
+private List<String> consumeList;
+```
+* **Map from property file**
+```
+application.prop`
+	DB_BOOTSTRAP_CREDENTIALS = {db_host: "http://abc.com:3306",username: "tmp",password: "xxxx"}
+	
+@Value("#{${DB_BOOTSTRAP_CREDENTIALS}}")
+private Map<String,String> dbCredentials;
+```
+* **ConfigurationProperties: resolve group of properties as bean(object)**
+```
+application.properties
+	myapp.clientid=client_4321
+	myapp.clientsecret=xyzxyzxyzxyzxyzxyz
+	myapp.tokenurl=https://tokenurl/auth
+	
+@Configuration
+//Property group stat myapp has to configured as below
+@ConfigurationProperties("myapp")
+public class MyAppClient {
+	
+	private String clientId;
+	private String clientSecret;
+	private String tokenURL;
+}
+
+@RequestMapping("/hello")
+@RestController
+public class HelloResource {
+	@Autowired
+	private MyAppClient client;
+	@GetMapping
+	public String hello() {
+		return client.toString();
+	}
+}
 ```
 1. Accessing Service using Febin client proxy
 ----------------------------------------------
