@@ -145,6 +145,14 @@ public class HelloResource {
 	}
 }
 ```
+* **Over riding properties**
+We can override the properties in property file by doing.
+```
+1. place a aditional application.properties file with updated props in the same location as jar and run the jar.During the app start it will pick the updated properties from
+application.properties outside the jar.
+2. Setting env variable or bootstrap varibales
+java -jar my-spring-demo.jar --spring.profiles.active=qa
+```
 1. Accessing Service using Febin client proxy
 ----------------------------------------------
 
