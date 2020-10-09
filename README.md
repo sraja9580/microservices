@@ -72,11 +72,11 @@ Use app name in service call
 ```
 # Microservice configuration
 **Configuration Goals**
-* Externalized - configuration separated from code(in props)
-* Environment Specific - Profile
-* Consistent - Consistent across all the service and there instance
-* Version HISTORY
-* Real-time management - changing config without restart
+* [Externalized - configuration separated from code(in props)](#read-config-from-props-file-demo)
+* [Environment Specific](#profile)
+* [Consistent - Consistent across all the service and there instance](#config-server)
+* [Version HISTORY](#config-server)
+* [Real-time management - changing config without restart](#config-server)
 
 ## [Read config from props file Demo](microservice-configuration/config-at_value-configurationproperties)
 **@Value annotation**
