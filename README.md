@@ -153,6 +153,13 @@ application.properties outside the jar.
 2. Setting env variable or bootstrap varibales
 java -jar my-spring-demo.jar --spring.profiles.active=qa
 ```
+## [Profile](microservice-configuration/profile-and-configclient)
+* we can have environment specific configuration using, spring profiles.
+* application.properties -> **default**
+* application-<**profile**>.properties 	application-**dev**.properties
+* you can activate the profile by setting , in properties file. **spring.profiles.active=qa**
+* As property file is part of code me can move the profile setup to env or bootstrap variable **java -jar my-springprofile-demo.jar --spring.profiles.active=qa**
+
 1. Accessing Service using Febin client proxy
 ----------------------------------------------
 
