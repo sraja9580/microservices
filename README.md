@@ -159,7 +159,22 @@ java -jar my-spring-demo.jar --spring.profiles.active=qa
 * application-<**profile**>.properties 	application-**dev**.properties
 * you can activate the profile by setting , in properties file. **spring.profiles.active=qa**
 * As property file is part of code me can move the profile setup to env or bootstrap variable **java -jar my-springprofile-demo.jar --spring.profiles.active=qa**
-## [Cloud Config Server]
+## [Cloud Config Server](#)
+**Config Server**
+* Create a project with **org.springframework.cloud:spring-cloud-config-server** starter
+* Add **@EnableConfigServer** to Application class
+* Add **Config repo URL** in property file
+```
+application.properties
+server.port: 8888
+spring.cloud.config.server.git.uri = file://C:/Users/RAJA SELVARAJDesktop/git/demo-config-server
+```
+* test using below url
+```
+http://localhost:8888/<app-name>/<profile> 
+http://localhost:8888/profile-configclient/qa
+```
+	
 
 1. Accessing Service using Febin client proxy
 ----------------------------------------------
