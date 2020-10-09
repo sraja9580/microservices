@@ -145,7 +145,7 @@ public class HelloResource {
 	}
 }
 ```
-* **Over riding properties**
+* **Over riding properties**<br>
 We can override the properties in property file by doing.
 ```
 1. place a aditional application.properties file with updated props in the same location as jar and run the jar.During the app start it will pick the updated properties from
