@@ -76,7 +76,7 @@ Use app name in service call
 * [Environment Specific](#profile)
 * [Consistent - Consistent across all the service and there instance](#config-server)
 * [Version HISTORY](#config-server)
-* [Real-time management - changing config without restart](#config-server)
+* [Real-time management - changing config without restart](#cloud-config-server)
 
 ## [Read config from props file Demo](microservice-configuration/config-at_value-configurationproperties)
 **@Value annotation**
@@ -159,6 +159,7 @@ java -jar my-spring-demo.jar --spring.profiles.active=qa
 * application-<**profile**>.properties 	application-**dev**.properties
 * you can activate the profile by setting , in properties file. **spring.profiles.active=qa**
 * As property file is part of code me can move the profile setup to env or bootstrap variable **java -jar my-springprofile-demo.jar --spring.profiles.active=qa**
+## [Cloud Config Server]
 
 1. Accessing Service using Febin client proxy
 ----------------------------------------------
