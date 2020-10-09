@@ -176,7 +176,12 @@ http://localhost:8888/profile-configclient/qa
 ```
 **[Config Client](microservice-configuration/profile-and-configclient)**
 * App starter **org.springframework.cloud:spring-cloud-starter-config** to your project
-* Config client needs **boot
+* Config client needs **bootstrap.properties**
+* add **config-server url** and **active-profile** in **bootstrap.properties**
+```
+spring.profiles.active=qa
+spring.cloud.config.uri = http://localhost:8888/
+```
 	
 
 1. Accessing Service using Febin client proxy
