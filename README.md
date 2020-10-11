@@ -1,5 +1,5 @@
 * [Service Discovery](#service-discovery)
-* [Microservice configurationy](#microservice-configuration)
+* [Microservice configuration](#microservice-configuration)
 
 # Service Discovery
 Instead of hardcoding URL of the service we consume, our microservice will check with the **Discovery Service** for available instance of service we looking for.<br>
@@ -72,13 +72,13 @@ Use app name in service call
 ```
 # Microservice configuration
 **Configuration Goals**
-* Externalized - configuration separated from code(in props)
-* Environment Specific - Profile
-* Consistent - Consistent across all the service and there instance
-* Version HISTORY
-* Real-time management - changing config without restart
+* [Externalized - configuration separated from code(in props)](#read-config-from-props-file-demo)
+* [Environment Specific](#profile)
+* [Consistent - Consistent across all the service and there instance](#config-server)
+* [Version HISTORY](#config-server)
+* [Real-time management - changing config without restart](#cloud-config-server)
 
-## [Read config from props file Demo](configurationy/config-at_value-configurationproperties)
+## [Read config from props file Demo](microservice-configuration/config-at_value-configurationproperties)
 **@Value annotation**
 * @value  resolves the expression to a string
 ```
@@ -145,6 +145,45 @@ public class HelloResource {
 	}
 }
 ```
+* **Over riding properties**<br>
+We can override the properties in property file by doing.
+```
+1. place a aditional application.properties file with updated props in the same location as jar and run the jar.During the app start it will pick the updated properties from
+application.properties outside the jar.
+2. Setting env variable or bootstrap varibales
+java -jar my-spring-demo.jar --spring.profiles.active=qa
+```
+## [Profile](microservice-configuration/profile-and-configclient)
+* we can have environment specific configuration using, spring profiles.
+* application.properties -> **default**
+* application-<**profile**>.properties 	application-**dev**.properties
+* you can activate the profile by setting , in properties file. **spring.profiles.active=qa**
+* As property file is part of code me can move the profile setup to env or bootstrap variable **java -jar my-springprofile-demo.jar --spring.profiles.active=qa**
+## [Cloud Config Server](#)
+**[Config Server](microservice-configuration/config-server)**
+* Create a project with **org.springframework.cloud:spring-cloud-config-server** starter
+* Add **@EnableConfigServer** to Application class
+* Add **Config repo URL** in property file
+```
+application.properties
+server.port: 8888
+spring.cloud.config.server.git.uri = file://C:/Users/RAJA SELVARAJDesktop/git/demo-config-server
+```
+* test using below url
+```
+http://localhost:8888/<app-name>/<profile> 
+http://localhost:8888/profile-configclient/qa
+```
+**[Config Client](microservice-configuration/profile-and-configclient)**
+* App starter **org.springframework.cloud:spring-cloud-starter-config** to your project
+* Config client needs **bootstrap.properties**
+* add **config-server url** and **active-profile** in **bootstrap.properties**
+```
+spring.profiles.active=qa
+spring.cloud.config.uri = http://localhost:8888/
+```
+	
+
 1. Accessing Service using Febin client proxy
 ----------------------------------------------
 
