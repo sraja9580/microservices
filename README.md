@@ -2,6 +2,7 @@
 * [Microservice configuration](#microservice-configuration)
 
 # Service Discovery
+## Secondary Header
 Instead of hardcoding URL of the service we consume, our microservice will check with the **Discovery Service** for available instance of service we looking for.<br>
 
 **Why hard Coded URLs are so bad?**<br>
